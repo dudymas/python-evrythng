@@ -22,10 +22,12 @@ ch.setLevel(logging.DEBUG)
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 ch.setFormatter(formatter)
 LOG.addHandler(ch)
-
+CONFIG={
+    'EVT_BASE_URL': 'https://api.evrythng.com',
+}
 
 def request(request_type, resource_url, data=None, api_key=None, files=None,
-            base_url='https://api.evrythng.com', accept=False, debug=None,
+            base_url=CONFIG["EVT_BASE_URL"], accept=False, debug=None,
             query_params=None, pageNumber=None, perPage=None, timeout=30):
     """Send a request to the Evrythng API."""
     if debug is None:
