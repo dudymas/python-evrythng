@@ -3,7 +3,6 @@ import os
 import sys
 
 from evrythng.exceptions import MissingAPIKeyException
-from evrythng import config
 
 try:
     # Python 3.x
@@ -32,7 +31,7 @@ def request(request_type, resource_url, data=None, api_key=None, files=None,
         debug = os.getenv('PYEVT_DEBUG', '0') == '1'
 
     if base_url is None:
-        base_url = config.get_endpoint_attribute('base_url')
+        base_url = os.getenv('EVT_BASE_URL', 'https://api.evrythng.com')
 
     if query_params:
         if type(query_params) != dict:
