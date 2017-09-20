@@ -31,7 +31,7 @@ def request(request_type, resource_url, data=None, api_key=None, files=None,
         debug = os.getenv('PYEVT_DEBUG', '0') == '1'
 
     if base_url is None:
-        base_url = os.getenv('EVT_BASE_URL', 'https://api.evrythng.com')
+        base_url = os.getenv('PYEVT_BASE_URL', 'https://api.evrythng.com')
 
     if query_params:
         if type(query_params) != dict:
